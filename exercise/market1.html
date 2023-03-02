@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+    <script>
+        let result
+        do{
+            // 0. Define variable
+            let totalBelanja = 100000
+            // 1. User diminta untuk menginput angka di dalam prompt
+            let inputUser = prompt(`Total Belanja: Rp.${totalBelanja.toLocaleString()}. Silahkan Masukan Uang Anda:`)
+
+            // 2. Hitung inputan user, apakah uang yang di input cukup atau sesuai dengan total belanja
+            result = inputUser - totalBelanja
+
+            // 3. Menentukan hasil perhitungan dari step-2
+            //    - Apabila uang cukup, maka tampilkan alert
+            //    - Apabila uang kurang, maka balik lagi ke step-1
+            if(result >= 0){
+                alert(`Transaksi Sukses! Uang Kembalian Anda ${result}`)
+            }else{
+                alert('Transaksi Gagal. Uang Anda Kurang!')
+            }
+        }while(result < 0)
+    </script>
+</html>
