@@ -1,0 +1,28 @@
+<html>
+    <body>  
+    </body>
+    <script>
+        // 1. Define arrProducts, arrPrice
+        let arrProducts = ['Apel', 'Jeruk', 'Mangga', 'Melon'] 
+        let arrPrice = [10000, 15000, 20000]
+
+        // 2. Create list products
+        let showProducts = ''
+        for(let i=0; i < arrProducts.length; i++){
+            showProducts  += `${i+1} ${arrProducts[i]} = Rp.${arrPrice[i] === undefined? 0 : arrPrice[i].toLocaleString()}`
+            showProducts  += `\n`
+        }
+        
+        do{
+            // 3. Show list products using prompt
+            var inputUser = prompt(showProducts)
+            
+            // 4. Check users input
+            if(inputUser > 0 && inputUser <= arrProducts.length){
+                alert('Product Ditemukan')
+            }else{ 
+                alert('Product Tidak Ditemukan')
+            }
+        }while(inputUser < 0 || inputUser > arrProducts.length) // false || true = true
+    </script>
+</html>
