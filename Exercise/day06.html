@@ -1,0 +1,55 @@
+<script>
+    // Create Transaction using Class
+    class Product{
+        name = ''
+        price = 0
+
+        constructor(name, price){
+            this.name = name, 
+            this.price = price
+        }
+    }
+
+    let dbProduct = [
+        new Product('Apel', 10000),
+        new Product('Semangka', 15000)
+    ]
+
+    class Transaction{
+        cart = []
+        total = 0
+
+        showProductList(){
+            let list = ''
+
+            for(let i=0; i < dbProduct.length; i++){
+                list += `${i+1}. ${dbProduct[i].name} - Rp.${dbProduct[i].price.toLocaleString()} \n`
+            }
+
+            return list 
+        }
+
+        showPromptUser(){
+            do{
+                let selectedProduct = prompt(this.showProductList())
+
+                if(selectedProduct <= 0 || selectedProduct > dbProduct.length){
+                    alert('Product Tidak Ditemukan')
+                }else{
+                    let qty = prompt('Masukan Jumlah Quantity:')
+                    this.cart.push({...dbProduct[selectedProduct-1], quantity: qty}) // {productName, productPrice, quantity}
+                }
+
+                var question = prompt('Pilih Menu \n 1. Pilih Product \n 2. Checkout')
+            }while(question == 1) // '1' === 1
+            
+            let invoice = ''
+            for(let i=0; i<this.cart.length; i++){
+                invoice += `${this.cart[i].name}- Qty: ${this.cart[i].quantity} \n`
+            }
+            alert(invoice)
+        }
+    }
+
+    new Transaction().showPromptUser()
+</script>
