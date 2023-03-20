@@ -1,0 +1,62 @@
+<script>
+    let travels = [
+        { name: "Daytrans", price: 85000, seat: 
+                ['[Driver]', '\n', 
+                '[1A]', '[1B]', '   ', '[2A]', '[2B]', '\n', 
+                '[3A]', '[3B]', '   ', '[4A]', '[4B]', '\n', 
+                '[5A]', '[5B]', '   ', '[6A]', '[6B]', '\n', 
+                '[7A]', '[7B]', '   ', '[8A]', '[8B]'] }
+    ]
+
+    // 1. Display Travel List
+    function showTravelList(_travels){
+        let output = ''
+        _travels.forEach((value, index) => {
+            output += `${index+1}. ${value.name} - Rp.${value.price.toLocaleString()} \n`
+        })
+
+        return output
+    }
+
+    // 2. Display Seat by selected travel
+    function showSeat(_travels, _selectedTravel){ // _travels = data travel, _selectedTravel = 0
+        let output = ''
+        _travels[selectedTravel].seat.forEach(value => {
+            output += `${value}`
+        })
+
+        return output
+    }
+    
+    let selectedTravel = Number(prompt(showTravelList(travels))-1)
+    let cart = {
+            name: '', 
+            price: 0, 
+            selectedSeat: []
+        }
+    do{
+        let selectedSeat = prompt(showSeat(travels, selectedTravel))
+
+        // 2.Check isSeat available or 
+       
+        cart.name = travels[selectedTravel].name 
+        cart.price = travels[selectedTravel].price
+        if(travels[selectedTravel].seat.indexOf(`[${selectedSeat}]`) !== -1){
+            let idx = travels[selectedTravel].seat.indexOf(`[${selectedSeat}]`)
+            cart.selectedSeat.push(travels[selectedTravel].seat[idx])
+            travels[selectedTravel].seat[idx] = '[SO]'
+        }else{
+            alert('Seat Not Found!')
+        }
+
+        // 3. Menu 1. Checkout / 2. Select Seat
+        var selectMenu = prompt(`1. Checkout \n 2. Select Seat`)
+    }while(selectMenu != 1)
+
+    // 4. Show total
+    alert(`
+    Travel: ${cart.name}, 
+    Price: ${cart.price.toLocaleString()}, 
+    Seats: ${cart.selectedSeat.map(value => {return value})}
+    `)
+</script>
