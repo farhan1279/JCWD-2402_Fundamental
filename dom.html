@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <tr>
+                <td>
+                    Name 
+                </td>
+                <td>
+                    Hobby
+                </td>
+            </tr>
+        </th>
+        <tbody>
+            <tr>
+                <td>
+                    Enzo1
+                </td>
+                <td>
+                    Ngoding
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enzo2
+                </td>
+                <td>
+                    Futsal
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enzo3
+                </td>
+                <td>
+                    Badminton
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 id='title-1'>
+        Hello World!
+    </h1>
+    <button onclick="onChangeText(), onSubmit()"'>
+        Change Text
+    </button>
+
+    <table id='table-1'>
+        
+    </table>
+
+    <div class='eldiv'>
+        1
+    </div>
+    <div class='eldiv'>
+        2
+    </div>
+    <div class='eldiv'>
+        3
+    </div>
+</body>
+</html>
+
+<script>
+    function onChangeText(){
+        let students = ['Enzo', 'Egi', 'Abi']
+
+        let output = ''
+        students.forEach(value => {
+            output += `${value}`
+        })
+        document.getElementById('title-1').innerHTML = output
+    }
+
+    function onSubmit(){
+        console.log('Hello')
+    }
+
+    let outputNumbers = `<tr>`
+    let numbers = [100, 3, 5, 50, 7]
+    numbers.forEach(value => {
+        outputNumbers += `
+            <td>
+                ${value}
+            </td>
+        `
+    })
+    outputNumbers += `</tr>`
+    
+    document.getElementById('table-1').innerHTML = outputNumbers
+
+    console.log(document.getElementsByClassName('eldiv'))
+    document.getElementsByClassName('eldiv')[0].innerHTML = 'Abc'
+</script>
